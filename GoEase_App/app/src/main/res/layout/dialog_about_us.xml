@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="25dp" >
+
+            <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:minWidth="300dp"
+                    android:minHeight="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:background="@color/dialog_background">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        app:srcCompat="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/navUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="UEM Jaipur"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/txtUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="https://jaipur.uem.edu.in/"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/navUserEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:gravity="center"
+                        android:text="Developer: Shopan Dey"
+                        android:textSize="20dp"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/cancelButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right|top"
+            android:contentDescription="none"
+            android:src="@drawable/baseline_cancel_36" />
+    </FrameLayout>
+</FrameLayout>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="25dp" >
+
+            <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:minWidth="300dp"
+                android:minHeight="200dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:background="@color/dialog_background">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd1"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:text="Pow"
+                        android:background="@color/power">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd2"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:text="Fan"
+                        android:background="@color/card_background">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd3"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P3"
+                        android:background="@color/ok">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd4"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:text="Fan +"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd5"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:text="Fan -"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd6"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P6"
+                        android:background="@color/number">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd7"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:text="Light 1"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd8"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:text="Light 2"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd9"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P9"
+                        android:background="@color/number">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd10"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P10"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd11"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P11"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd12"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P12"
+                        android:background="@color/number">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd13"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P13"
+                        android:background="@color/card_background">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd14"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P14"
+                        android:background="@color/number">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd15"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P15"
+                        android:background="@color/card_background">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd16"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P16"
+                        android:background="@color/card_background">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd17"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P17"
+                        android:background="@color/move">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd18"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P18"
+                        android:background="@color/card_background">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd19"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P19"
+                        android:background="@color/move">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd20"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P20"
+                        android:background="@color/ok">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd21"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P21"
+                        android:background="@color/move">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd22"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P22"
+                        android:background="@color/card_background">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd23"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P23"
+                        android:background="@color/move">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd24"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P24"
+                        android:background="@color/card_background">
+
+                    </Button>
+                </LinearLayout>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/btnCmd25"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P25"
+                        android:background="@color/card_background">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd26"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P26"
+                        android:background="@color/card_background">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btnCmd27"
+                        android:layout_width="@dimen/btnRemote_width"
+                        android:layout_height="@dimen/btnRemote_height"
+                        android:layout_margin="5dp"
+                        android:enabled="false"
+                        android:text="P27"
+                        android:background="@color/card_background">
+
+                    </Button>
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/registerProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/cancelButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right|top"
+            android:contentDescription="none"
+            android:src="@drawable/baseline_cancel_36" />
+    </FrameLayout>
+</FrameLayout>

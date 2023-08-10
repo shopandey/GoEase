@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">GoEase</string>
+
+
+    <!--MainActivity-->
+    <string name="no_internet_title">No Network Detected</string>
+    <string name="no_internet_message">This application needs an active Internet connection. Please connect before opening this app.</string>
+
+    <!--LoginFragment-->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="apname">Enter your appliance name</string>
+    <string name="login_required">Please login to continue…</string>
+    <string name="action_login">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_aboutUs">About Us</string>
+    <string name="action_control">Control</string>
+    <string name="action_name">Change Name</string>
+    <string name="login_field_blank">Field cannot be blank</string>
+    <string name="login_failure">Failed to login. Please try again.</string>
+    <string name="invalid_login_credentials">Invalid login credentials</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="request_password">Request password</string>
+    <string name="password_sent">Password sent to </string>
+    <string name="registration_done">Registration successfully for </string>
+    <string name="registration_failed">Username already exist</string>
+    <string name="username_not_exists">Username does not exist</string>
+    <string name="enter_username">Forgot Password</string>
+    <string name="request_password_failure">Failed to request password. Please try again.</string>
+    <string name="request_register_failure">Failed to request register. \nPlease try again with an another username.</string>
+    <string name="not_valid_email">Not a valid email address</string>
+    <string name="username_cant_blank">Please enter a username</string>
+    <string name="password_cant_blank">Please enter a password</string>
+
+
+    <!--Menu Items and messages-->
+    <string name="exit">Exit</string>
+    <string name="about_us">About Us</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_home">Home</string>
+    <string name="change_server_url">Change server URL</string>
+    <string name="change_wait_time">Set wait time (in milliseconds)</string>
+    <string name="wait_time_changed">Wait time changed successfully</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirm">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="url_changed">Server URL Changed successfully</string>
+    <string name="about_us_message">This is a most secure chatting app. It can be used for top secret business communication. User message of this app is encrypted by military grade AES-256 bit encryption. </string>
+    <string name="own_email">Cannot add own email</string>
+    <string name="invalid_email">Invalid email entered</string>
+</resources>

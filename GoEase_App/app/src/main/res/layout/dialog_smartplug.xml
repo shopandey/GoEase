@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="25dp" >
+
+            <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:minWidth="300dp"
+                    android:minHeight="250dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:background="@color/dialog_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="left"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="Device ID: "
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/textView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="Name:"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="left"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtNodeID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="IFDY6J3"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/txtNodeName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="Bed Room"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center">
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/swOnOff"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="left|center"
+                            android:text="Power Plug"
+                            android:textSize="25sp"
+                            android:thumb="@drawable/custom_thumb"
+                            app:track="@drawable/custom_track" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/cancelButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right|top"
+            android:contentDescription="none"
+            android:src="@drawable/baseline_cancel_36" />
+    </FrameLayout>
+</FrameLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--the root view must be the DrawerLayout-->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wallpaper">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRVCourse"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="40dp"
+            app:fabCustomSize="65dp"
+            app:maxImageSize="50dp"
+            app:backgroundTint="@color/fab"
+            android:src="@drawable/baseline_add_black_24"
+            app:layout_anchorGravity="bottom|right|end" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <!--this the navigation view which draws
+        and shows the navigation drawer-->
+    <!--include the menu created in the menu folder-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:background="@color/dialog_background"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

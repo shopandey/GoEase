@@ -51,14 +51,15 @@ public class Details extends AppCompatActivity {
     public static final String TAG = "DetailActivity";
     TextView textTitle,txtSW1,txtSW2,txtSW3,txtSW4, txtNodeID, txtNodeName, txtNodeInput;
 
-    private Button bntFunctio,colorButton,cancelButton,okButton;
+    private Button bntFunction,colorButton,cancelButton,okButton;
     //private Dialog registerDialog;
     private RecyclerView RemoteList;
-    private Dialog switchDialog, changeNameDialog, lampDialog, lockDialog, remoteDialog, remoteListDialog;
+    private Dialog switchDialog, changeNameDialog, lampDialog, lockDialog, remoteDialog, remoteListDialog, plugDialog;
     private EditText txtName;
     private SwitchCompat swOnOff1, swOnOff2, swOnOff3, swOnOff4;
+    private SwitchCompat swPowerPlug;
     private ProgressDialog progressDialog;
-    private  String m_Text = "", ApplianceName, device_name, device_id, device_key, SwOnOff_label_1, SwOnOff_label_2, SwOnOff_label_3, SwOnOff_label_4;
+    private  String m_Text = "", ApplianceName, swPowerPlug_label, device_name, device_id, device_key, SwOnOff_label_1, SwOnOff_label_2, SwOnOff_label_3, SwOnOff_label_4;
     private SeekBar lblBrightness;
     private ImageView imgColor, imgLockStatus, imgLockControl;
     private Button btnCmd11, btnCmd12, btnCmd13, btnCmd21, btnCmd22, btnCmd23, btnCmd31, btnCmd32, btnCmd33;
@@ -165,7 +166,7 @@ public class Details extends AppCompatActivity {
                             remote_list();
                         }
                         else if (firstTwo(device_id).equals("SP")){
-                            ;
+                            plug_control(getValue(data_list[3]));
                         }
                         else {
                             switch_control(getValue(data_list[3]),getValue(data_list[4]),getValue(data_list[5]),getValue(data_list[6]));
@@ -407,6 +408,94 @@ public class Details extends AppCompatActivity {
         switchDialog.show();
     }
 
+    private void plug_control(boolean sw){
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Details.this);
+        swPowerPlug_label = sharedPreferences.getString(device_id+"N1", "Power Plug");
+
+
+        plugDialog = new Dialog(Details.this);
+        plugDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        plugDialog.setContentView(R.layout.dialog_smartplug);
+        plugDialog.setTitle(R.string.action_control);
+        plugDialog.setCancelable(false);
+        plugDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        txtNodeID = (TextView) plugDialog.findViewById(R.id.txtNodeID);
+        txtNodeName= (TextView) plugDialog.findViewById(R.id.txtNodeName);
+        //txtNodeInput = (TextView) plugDialog.findViewById(R.id.txtNodeInput);
+
+        txtNodeID.setText(device_id);
+        txtNodeName.setText(device_name);
+
+        swPowerPlug = (SwitchCompat) plugDialog.findViewById(R.id.swOnOff);
+
+
+        swPowerPlug.setChecked(sw);
+
+
+        /*
+        swOnOff1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.d(TAG, "On click sw1");
+            }
+        });
+        */
+
+        CompoundButton.OnCheckedChangeListener multiListener = new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+
+
+                String output_data = (swPowerPlug.isChecked() ? "1" : "0") + ",0,0,0" ;
+
+                if (Constants.D) Log.d(TAG, "SW: "+output_data);
+
+                progressDialog = new ProgressDialog(Details.this);
+                progressDialog.setMessage("Loading...");
+                //MainActivity.this.progressDialog.setTitle("ProgressDialog");
+                progressDialog.setProgressStyle(0);
+                progressDialog.show();
+                progressDialog.setCancelable(false);
+
+                new SendHttpRequestTask().execute(new String[]{Constants.SERVER_ADDRESS+Constants.DEVICE_CONTROL_PAGE, device_id, device_key, output_data});
+
+            }
+        };
+
+        swPowerPlug.setOnCheckedChangeListener(multiListener);
+
+        swPowerPlug.setText(swPowerPlug_label);
+
+
+        swPowerPlug.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Log.d(TAG, "Long click smart plug");
+
+                get_name(1); //ApplianceName
+                //txtSW1.setText(get_name());
+                return true;
+            }
+        });
+
+
+        ImageView cancelButton = (ImageView) plugDialog.findViewById(R.id.cancelButton);
+        if (cancelButton == null)
+            Log.d(TAG, "Cancel");
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            //@SuppressWarnings("ConstantConditions")
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "cancel.onClick()");
+
+                plugDialog.dismiss();
+                finish();
+
+            }
+        });
+        plugDialog.show();
+    }
+
     private void lamp_control(){
         lampDialog = new Dialog(Details.this);
         lampDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -424,6 +513,57 @@ public class Details extends AppCompatActivity {
 
         lblBrightness = (SeekBar) lampDialog.findViewById(R.id.lblBrightness);
         lblBrightness.setProgress(pwm);
+
+        lblBrightness.setOnSeekBarChangeListener(
+                new SeekBar
+                        .OnSeekBarChangeListener() {
+
+                    // When the progress value has changed
+                    @Override
+                    public void onProgressChanged(
+                            SeekBar seekBar,
+                            int progress,
+                            boolean fromUser)
+                    {
+
+                        // increment 1 in progress and
+                        // increase the textsize
+                        // with the value of progress
+                        Log.d(TAG, "Brightness: " + progress);
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar)
+                    {
+
+                        // This method will automatically
+                        // called when the user touches the SeekBar
+                        Log.d(TAG, "Brightness Start");
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar)
+                    {
+
+                        // This method will automatically
+                        // called when the user
+                        // stops touching the SeekBar
+                        pwm = lblBrightness.getProgress();
+                        Log.d(TAG, "Brightness Stop");
+                        String output_data = pwm + "," + red + "," + green + "," + blue;
+                        if (Constants.D) Log.d(TAG, "SW: "+output_data);
+
+                        progressDialog = new ProgressDialog(Details.this);
+                        progressDialog.setMessage("Loading...");
+                        //MainActivity.this.progressDialog.setTitle("ProgressDialog");
+                        progressDialog.setProgressStyle(0);
+                        progressDialog.show();
+                        progressDialog.setCancelable(false);
+
+                        new SendHttpRequestTask().execute(new String[]{Constants.SERVER_ADDRESS+Constants.DEVICE_CONTROL_PAGE, device_id, device_key, output_data});
+
+                    }//Prograss
+                });
 
         imgColor = (ImageView) lampDialog.findViewById(R.id.colorImage);
         imgColor.setBackgroundColor(android.graphics.Color.rgb( red, green, blue));
@@ -449,8 +589,8 @@ public class Details extends AppCompatActivity {
                 ColorPickerDialogBuilder
                         .with(Details.this)
                         .initialColor(android.graphics.Color.rgb( red, green, blue))
-                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                        .lightnessSliderOnly()
+                        .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
+                        .noSliders()
                         .density(9)
                         .setOnColorSelectedListener(new OnColorSelectedListener() {
                             @Override
@@ -1044,17 +1184,17 @@ public class Details extends AppCompatActivity {
 
                         remote_control();
                         break;
-                        
+
                     case 2:
                         //write your code here
                         //cmd = "02";
                         break;
-                        
+
                     case 4:
                         //write your code here
                         //cmd = "02";
                         break;
-                        
+
                     default:
                        ;
                 }
